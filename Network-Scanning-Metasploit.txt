@@ -1,0 +1,17 @@
+1. using nmap
+sudo systemctl start postgresql
+sudo msfdb init
+msfconsole
+msf6 > db_nmap -sV 192.168.1.0/24
+msf6 > hosts
+msf6 > services
+
+2. Using auxiliary port scanner
+
+msf6 > search portscan
+msf6 > use auxiliary/scanner/portscan/syn
+msf6 auxiliary(scanner/portscan/syn) > show options
+msf6 auxiliary(scanner/portscan/syn) set RHOSTS 192.168.1.0/24
+msf6 auxiliary(scanner/portscan/syn) set THREADS 50
+msf6 auxiliary(scanner/portscan/syn) > run
+

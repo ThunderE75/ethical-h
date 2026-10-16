@@ -1,0 +1,10 @@
+On a Centos VM perform following.
+Install httpd web server. Configure it to run on port 5000. Start the service. Enable the service to start automatically.
+Install nginx web server. It will run on port 80. Start and enable the nginx service.
+Open ports 80 and 5000 in the CentOS firewall.
+Open a Terminal and start python http server to run on port 8500. Do not open this port in the firewall.
+
+Now from the Kali linux perform nmap scan on CentOS VM IP address and display the ports shown by nmap.
+Use metasploit to perform the port scanning on CentOS VM using nmap and auxillary port scanner and display the result.
+
+From Kali linux create a SSH tunnel and access the internall python website on port 10000 on Kali Linux.
