@@ -1,0 +1,21 @@
+1. Using Telnet
+telnet <domain/IP> <port>
+use EXPN, MAIL FROM and RCPT TO after connecting to the target host.
+
+2. Using Nmap for SMTP enumeration
+sudo nmap -p 25 --script smtp-enum-users <target IP/domain>
+
+3. Using Metasploit for SMTP Enumeration
+msf6 > use auxiliary/scanner/smtp/smtp_enum
+msf6 auxiliary(smtp_enum) > set RHOSTS <target IP>
+msf6 auxiliary(smtp_enum) > set RPORT 25
+msf6 auxiliary(smtp_enum) > set USER_FILE <path_to_user_list>
+msf6 auxiliary(smtp_enum) > run
+
+smtp_version Module:
+
+msf6 > use auxiliary/scanner/smtp/smtp_version
+msf6 auxiliary(smtp_version) > set RHOSTS <target IP>
+msf6 auxiliary(smtp_version) > set THREADS 250
+msf6 auxiliary(smtp_version) > run
+
