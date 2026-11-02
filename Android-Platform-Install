@@ -1,0 +1,14 @@
+Go to https://developer.android.com/studio
+Scroll down to download command line tools zip file.
+Create a root directory named C:\Android\
+Extract your downloaded ZIP. Open the extracted folder, copy all of its contents (such as the bin and lib subfolders), and paste them directly inside the above folder.
+Add the above directory in the PATH variable.
+sdkmanager --licenses
+Install platform tools using following command
+sdkmanager "platform-tools" "emulator" "platforms;android-35" "system-images;android-35;default;x86_64"
+Create a Virtual device
+avdmanager create avd -n TestDevice -k "system-images;android-35;default;x86_64"
+Varify and boot the device
+emulator -avd TestDevice
+Confirm by running 
+adb devices
